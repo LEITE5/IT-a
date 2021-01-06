@@ -1,5 +1,5 @@
 # IT-a
-Assessment Artifact for Imersive Technologies
+## Assessment Artifact for Imersive Technologies
 
 a) Augmented Reality Points of Interest Application. Develop a mobile AR web app which will download OpenStreetMap 
 (OSM) Points Of Interest (POIs) from a GeoJSON-based web API (the API URL and specification will be given to you 
@@ -16,11 +16,11 @@ The application should show your latitude and longitude. A more advanced answer 
 
 TODO:
 
-change primitive forms to 3D models -- DONE
-install service workers  -- DONE
-use scheme for universal variables  -- DONE
-make a progressive web app  -- DONE
-how to add color to obj model - edit material file directly -- DONE
-where is the link in the objects? - website inside of the properties -- DONE
-add virtual noticeboard to POI's  -- DONE
-use indedexedDB -- TODO
+- change primitive forms to 3D models -- DONE
+- install service workers  -- DONE
+- use scheme for universal variables  -- DONE
+- make a progressive web app  -- DONE
+- how to add color to obj model - edit material file directly -- DONE
+- where is the link in the objects? - website inside of the properties -- DONE
+- add virtual noticeboard to POI's  -- DONE
+- use indedexedDB -- TODO
