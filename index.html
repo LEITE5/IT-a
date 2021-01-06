@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>AR.js Peak Finder</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <link rel='manifest' href='findpoi.webmanifest' />
+  <script src="bundle.js"></script>
+</head>
+<style>
+  .overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: black;
+    padding: 1em;
+  }
+
+  .overlayR {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 1em;
+  }
+</style>
+
+<body>
+  <p id="status" class="overlay" style="color:white; font-size:24px;"></p>
+  <p id="details" class="overlayR" style="color:white; font-size:24px;"></p>
+  <a-scene vr-mode-ui="enabled: false" cursor="rayOrigin: mouse"
+    arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'>
+    <a-asset-item src='assets/tree.obj' id='tree'></a-asset-item>
+    <a-asset-item src='assets/tree.mtl' id='tree-material'></a-asset-item>
+    <a-asset-item src='assets/cup-obj/cup.obj' id='cup'></a-asset-item>
+    <a-asset-item src='assets/cup-obj/cup.mtl' id='cup-material'></a-asset-item>
+    <a-asset-item src='assets/table-and-chair.obj' id='restaurant'></a-asset-item>
+    <a-asset-item src='assets/table-and-chair.mtl' id='restaurant-material'></a-asset-item>
+    <a-asset-item src='assets/beer-bottle.obj' id='bottle'></a-asset-item>
+    <a-asset-item src='assets/beer-bottle.mtl' id='bottle-material'></a-asset-item>
+    <a-camera gps-projected-camera vertical-controls wasd-controls="acceleration:500"></a-camera>
+    <a-entity terrarium-dem='zoom: 15; url: https://hikar.org/webapp/proxy.php?x={x}&y={y}&z={z}'
+      osm3d='url: https://hikar.org/fm/ws/tsvr.php?x={x}&y={y}&z={z}&amp;poi=all&amp;outProj=4326' poifinder></a-entity>
+  </a-scene>
+</body>
+
+</html>
