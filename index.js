@@ -37,7 +37,6 @@ AFRAME.registerComponent('poifinder', {
         });
 
         this.el.addEventListener('elevation-available', e => {
-            console.log("Elevation:", e.detail.elevation)
             document.querySelector('[gps-projected-camera]').object3D.position.y = e.detail.elevation;
         });
 
@@ -46,8 +45,6 @@ AFRAME.registerComponent('poifinder', {
             e.detail.pois
                 .filter(poi => poi.properties.amenity !== undefined && poi.properties.name !== undefined)
                 .forEach(poi => {
-                    console.log("PLACES TO STAY ", poi.properties.amenity, poi);
-
                     //Making the notice board
                     const infoboard = document.createElement('a-plane');
                     const message = document.createElement('a-text');
@@ -111,10 +108,10 @@ AFRAME.registerComponent('poifinder', {
                             document.getElementById("details").innerHTML += `Type: ${poi.properties.amenity}<br>`;
                             document.getElementById("details").innerHTML += `Longitude: ${poi.geometry.coordinates[0]}<br>`;
                             document.getElementById("details").innerHTML += `Latitude: ${poi.geometry.coordinates[1]}<br>`;
-                            document.getElementById("details").innerHTML += `Altitute(m): ${poi.geometry.coordinates[2]}<br>`;
+                            document.getElementById("details").innerHTML += `Altitute: ${poi.geometry.coordinates[2].toFixed(2)}m<br>`;
                             if (poi.properties.website !== undefined) {
                                 document.getElementById("details").innerHTML += `Website: ${poi.properties.website}<br>`;
-                                if (confirm("You are about to be redirected to the place of interest page, do you want to go?")) {
+                                if (confirm("You are about to be redirected to the restaurant page, do you want to go?")) {
                                     window.location.href = poi.properties.website
                                 }
                                 else {
@@ -150,8 +147,15 @@ AFRAME.registerComponent('poifinder', {
                             document.getElementById("details").innerHTML += `Type: ${poi.properties.amenity}<br>`;
                             document.getElementById("details").innerHTML += `Longitude: ${poi.geometry.coordinates[0]}<br>`;
                             document.getElementById("details").innerHTML += `Latitude: ${poi.geometry.coordinates[1]}<br>`;
+                            document.getElementById("details").innerHTML += `Altitute: ${poi.geometry.coordinates[2].toFixed(2)}m<br>`;
                             if (poi.properties.website !== undefined) {
                                 document.getElementById("details").innerHTML += `Website: ${poi.properties.website}<br>`;
+                                if (confirm("You are about to be redirected to the pub of interest page, do you want to go?")) {
+                                    window.location.href = poi.properties.website
+                                }
+                                else {
+                                    return;
+                                }
                             }
                         });
                         this.el.sceneEl.appendChild(pubEntity);
@@ -180,8 +184,15 @@ AFRAME.registerComponent('poifinder', {
                         document.getElementById("details").innerHTML += `Type: ${poi.properties.amenity}<br>`;
                         document.getElementById("details").innerHTML += `Longitude: ${poi.geometry.coordinates[0]}<br>`;
                         document.getElementById("details").innerHTML += `Latitude: ${poi.geometry.coordinates[1]}<br>`;
+                        document.getElementById("details").innerHTML += `Altitute: ${poi.geometry.coordinates[2].toFixed(2)}m<br>`;
                         if (poi.properties.website !== undefined) {
                             document.getElementById("details").innerHTML += `Website: ${poi.properties.website}<br>`;
+                            if (confirm("You are about to be redirected to the cafe page, do you want to go?")) {
+                                window.location.href = poi.properties.website
+                            }
+                            else {
+                                return;
+                            }
                         }
                     });
                     cafeEntity.setAttribute('rotation', {
@@ -217,8 +228,15 @@ AFRAME.registerComponent('poifinder', {
                         document.getElementById("details").innerHTML += `Type: ${poi.properties.amenity}<br>`;
                         document.getElementById("details").innerHTML += `Longitude: ${poi.geometry.coordinates[0]}<br>`;
                         document.getElementById("details").innerHTML += `Latitude: ${poi.geometry.coordinates[1]}<br>`;
+                        document.getElementById("details").innerHTML += `Altitute: ${poi.geometry.coordinates[2].toFixed(2)}m<br>`;
                         if (poi.properties.website !== undefined) {
                             document.getElementById("details").innerHTML += `Website: ${poi.properties.website}<br>`;
+                            if (confirm("You are about to be redirected to the place of interest page, do you want to go?")) {
+                                window.location.href = poi.properties.website
+                            }
+                            else {
+                                return;
+                            }
                         }
                     });
                     const entity = document.createElement('a-entity');
