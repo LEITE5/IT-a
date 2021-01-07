@@ -11,15 +11,6 @@
   <script src="bundle.js"></script>
 </head>
 <style>
-  .overlay {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1000;
-    background: black;
-    padding: 1em;
-  }
-
   .overlayR {
     position: absolute;
     bottom: 20px;
@@ -30,7 +21,6 @@
 </style>
 
 <body>
-  <p id="status" class="overlay" style="color:white; font-size:24px;"></p>
   <p id="details" class="overlayR" style="color:white; font-size:24px;"></p>
   <a-scene vr-mode-ui="enabled: false" cursor="rayOrigin: mouse"
     arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'>
