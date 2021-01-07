@@ -22,10 +22,10 @@ AFRAME.registerComponent('poifinder', {
     },
     init: function () {
         window.addEventListener('terrarium-start-update', e => {
-            document.getElementById("status").innerHTML = "Downloading";
+            document.getElementById("details").innerHTML = "Downloading";
         })
         window.addEventListener('terrarium-dem-loaded', e => {
-            document.getElementById("status").innerHTML = "Finished";
+            document.getElementById("details").innerHTML = "Finished";
 
         })
 
